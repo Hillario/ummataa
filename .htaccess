@@ -1,0 +1,10 @@
+<IfModule mod_deflate.c>
+    AddEncoding gzip .gz
+    <FilesMatch "\.(js|css)$">
+        SetEnvIfNoCase Request_URI \.(js|css)$ no-gzip
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.(html|json)$">
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+</IfModule>
